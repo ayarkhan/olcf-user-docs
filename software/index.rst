@@ -9,6 +9,8 @@ Software
 .. toctree::
    :maxdepth: 2
 
+   SWList
+
    software-news
    analytics/index
    python/index

@@ -36,7 +36,20 @@ author = 'OLCF'
 
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx_design']
+#extensions = ['sphinx_design']
+
+extensions = [
+    'sphinx_design',
+    "sphinxcontrib.jquery",
+    "sphinx_datatables",
+]
+
+# Data table settings
+# name of the class to use for tables to enable DataTables
+datatables_class = "sphinx-datatable"
+datatables_options = {
+    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],  # Allow choosing number of rows per page 
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
