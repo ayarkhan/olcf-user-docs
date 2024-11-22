@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guided Tutorial: CLI &mdash; OLCF User Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_style.css?v=678fb11e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-needs/modern.css?v=803738c0" />
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme_overrides.css?v=b034643a" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="canonical" href="https://docs.olcf.ornl.govservices_and_applications/slate/guided_tutorial_cli.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/design-tabs.js?v=36754332"></script>
+        <script src="../../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+        <script src="../../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+        <script src="../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+        <script src="../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+        <script src="../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+        <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+        <script src="../../_static/activate_datatables.js?v=e38ccb97"></script>
+        <script src="../../_static/js/custom.js?v=f5206ae7"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Image Building" href="image_building.html" />
+    <link rel="prev" title="Guided Tutorial" href="guided_tutorial.html" />
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #efefef" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/olcf_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../support/index.html">Contact &amp; Support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../support/index.html#olcf-user-assistance-center">OLCF User Assistance Center</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../support/index.html#authentication-support">Authentication Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../support/index.html#olcf-office-hours">OLCF Office Hours</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../support/index.html#communication-to-users">Communication to Users</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../accounts/index.html">Accounts and Projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../accounts/accounts_and_projects.html">Request a New Allocation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/accounts_and_projects.html#what-are-the-differences-between-project-types">What are the differences between project types?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/accounts_and_projects.html#what-happens-after-a-project-request-is-approved">What happens after a project request is approved?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/accounts_and_projects.html#guidance-on-frontier-allocation-requests">Guidance on Frontier Allocation Requests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../accounts/accounts_and_projects.html#applying-for-a-user-account">Applying for a user account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../accounts/accounts_and_projects.html#checking-the-status-of-your-application">Checking the status of your application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../accounts/accounts_and_projects.html#get-access-to-additional-projects">Get access to additional projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../accounts/frequently_asked_questions.html">Frequently Asked Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/frequently_asked_questions.html#how-do-i-apply-for-an-account">How do I apply for an account?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/frequently_asked_questions.html#what-is-the-status-of-my-application">What is the status of my application?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/frequently_asked_questions.html#how-should-i-acknowledge-the-olcf-in-my-publications-and-presentations">How should I acknowledge the OLCF in my publications and presentations?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/frequently_asked_questions.html#what-is-a-subproject">What is a subproject?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/frequently_asked_questions.html#i-no-longer-need-my-account-who-should-i-inform-and-what-should-i-do-with-my-olcf-issued-rsa-securid-token">I no longer need my account. Who should I inform and what should I do with my OLCF issued RSA SecurID token?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/frequently_asked_questions.html#my-securid-token-is-broken-expired-what-should-i-do">My SecurID token is broken/expired. What should I do?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/frequently_asked_questions.html#getting-help">Getting Help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/frequently_asked_questions.html#additional-resources">Additional Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../accounts/documents_and_forms.html">Documents and Forms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/documents_and_forms.html#forms-for-requesting-a-project-allocation">Forms for Requesting a Project Allocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/documents_and_forms.html#forms-for-requesting-an-account">Forms for Requesting an Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/documents_and_forms.html#forms-to-request-changes-to-computers-jobs-or-accounts">Forms to Request Changes to Computers, Jobs, or Accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/documents_and_forms.html#report-templates">Report Templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/documents_and_forms.html#miscellaneous-forms">Miscellaneous Forms</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../accounts/olcf_policy_guide.html">OLCF Policy Guides</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#olcf-acknowledgement">OLCF Acknowledgement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#software-requests">Software Requests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#special-requests-and-policy-exemptions">Special Requests and Policy Exemptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#computing-policy">Computing Policy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#computer-use">Computer Use</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#data-use">Data Use</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#software-use">Software Use</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#user-accountability">User Accountability</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#data-management-policy">Data Management Policy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#data-retention-purge-quotas">Data Retention, Purge, &amp; Quotas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#data-prohibitions-safeguards">Data Prohibitions &amp; Safeguards</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#software">Software</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#security-policy">Security Policy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#scope">Scope</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#personal-use">Personal Use</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#accessing-olcf-computational-resources">Accessing OLCF Computational Resources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#data-management">Data Management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#sensitive-data">Sensitive Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#data-transfer">Data Transfer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#incite-allocation-under-utilization-policy">INCITE Allocation Under-utilization Policy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#project-reporting-policy">Project Reporting Policy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#non-proprietary-institutional-user-agreement-policy">Non-proprietary Institutional User Agreement Policy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#access">Access</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#rules-and-regulations">Rules and Regulations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#safety-and-health">Safety and Health</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#intent-to-publish">Intent to Publish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#export-control">Export Control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#intellectual-property">Intellectual Property</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#hipaa-itar-project-rules-of-behavior-policy">HIPAA/ITAR Project Rules of Behavior Policy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#user-managed-software-ums-policy">User-Managed Software (UMS) Policy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#purpose">Purpose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../accounts/olcf_policy_guide.html#policies">Policies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../accounts/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../accounts/index.html#additional-resources">Additional Resources</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../connecting/index.html">Connecting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../connecting/index.html#connecting-for-the-first-time">Connecting for the first time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../connecting/index.html#activating-a-new-securid-fob">Activating a new SecurID fob</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../connecting/index.html#pins-passcodes-and-tokencodes">PINs, Passcodes, and Tokencodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../connecting/index.html#x11-forwarding">X11 Forwarding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../connecting/index.html#id2">Systems Available to All Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../connecting/index.html#olcf-system-hostnames">OLCF System Hostnames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../connecting/index.html#starting-a-tmux-session">Starting a Tmux Session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../connecting/index.html#checking-system-availability">Checking System Availability</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../systems/index.html">Systems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../systems/2024_olcf_system_changes.html">2024 Notable System Changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/2024_olcf_system_changes.html#hpss-decommission-and-kronos-availability">HPSS Decommission and Kronos Availability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/2024_olcf_system_changes.html#late-july-2024-kronos-available">Late July 2024 - Kronos available</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/2024_olcf_system_changes.html#august-30-2024-hpss-becomes-read-only">August 30, 2024 - HPSS becomes read-only</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/2024_olcf_system_changes.html#january-31-2025-hpss-decommissioned">January 31, 2025 - HPSS decommissioned</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/2024_olcf_system_changes.html#summit-and-alpine2-decommissions">Summit and Alpine2 Decommissions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/2024_olcf_system_changes.html#november-15-2024-summit-decommissioned">November 15, 2024 - Summit decommissioned</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/2024_olcf_system_changes.html#november-19-2024-alpine2-read-only">November 19, 2024 - Alpine2 read-only</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/2024_olcf_system_changes.html#january-31-2025-alpine2-decommissioned">January 31, 2025 - Alpine2 decommissioned</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../systems/frontier_user_guide.html">Frontier User Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/frontier_user_guide.html#system-overview">System Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#frontier-compute-nodes">Frontier Compute Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#node-types">Node Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#system-interconnect">System Interconnect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#file-systems">File Systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#operating-system">Operating System</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#gpus">GPUs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/frontier_user_guide.html#connecting">Connecting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/frontier_user_guide.html#data-and-storage">Data and Storage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#transition-from-alpine-to-orion">Transition from Alpine to Orion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#lfs-setstripe-wrapper">LFS setstripe wrapper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#nfs-filesystem">NFS Filesystem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#lustre-filesystem">Lustre Filesystem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#kronos-archival-storage">Kronos Archival Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#nvme">NVMe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#nvme-usage">NVMe Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/frontier_user_guide.html#using-globus-to-move-data-to-and-from-orion">Using Globus to Move Data to and from Orion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/frontier_user_guide.html#amd-gpus">AMD GPUs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#amd-vs-nvidia-terminology">AMD vs NVIDIA Terminology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#blocks-workgroups-threads-work-items-grids-wavefronts">Blocks (workgroups), Threads (work items), Grids, Wavefronts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#the-compute-unit">The Compute Unit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#hip">HIP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#things-to-remember-when-programming-for-amd-gpus">Things To Remember When Programming for AMD GPUs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/frontier_user_guide.html#programming-environment">Programming Environment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#environment-modules-lmod">Environment Modules (Lmod)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#compilers">Compilers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#mpi">MPI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/frontier_user_guide.html#compiling">Compiling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#id4">Compilers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#id7">MPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#openmp">OpenMP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#openmp-gpu-offload">OpenMP GPU Offload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#openacc">OpenACC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#id9">HIP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#hip-openmp-cpu-threading">HIP + OpenMP CPU Threading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#sycl">SYCL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/frontier_user_guide.html#running-jobs">Running Jobs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#login-vs-compute-nodes">Login vs Compute Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#simplified-node-layout">Simplified Node Layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#slurm">Slurm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#batch-scripts">Batch Scripts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#interactive-jobs">Interactive Jobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#common-slurm-options">Common Slurm Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#slurm-environment-variables">Slurm Environment Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#job-states">Job States</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#job-reason-codes">Job Reason Codes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#scheduling-policy">Scheduling Policy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#job-dependencies">Job Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#monitoring-and-modifying-batch-jobs">Monitoring and Modifying Batch Jobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#srun">Srun</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#process-and-thread-mapping-examples">Process and Thread Mapping Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#ensemble-jobs">Ensemble Jobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#tips-for-launching-at-scale">Tips for Launching at Scale</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/frontier_user_guide.html#software">Software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/frontier_user_guide.html#debugging">Debugging</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#linaro-ddt">Linaro DDT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#gdb">GDB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#valgrind4hpc">Valgrind4hpc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#omnitrace">Omnitrace</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/frontier_user_guide.html#profiling-applications">Profiling Applications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#getting-started-with-the-hpe-performance-analysis-tools-pat">Getting Started with the HPE Performance Analysis Tools (PAT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#getting-started-with-hpctoolkit">Getting Started with HPCToolkit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#getting-started-with-the-rocm-profiler">Getting Started with the ROCm Profiler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#roofline-profiling-with-the-rocm-profiler">Roofline Profiling with the ROCm Profiler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#omniperf">Omniperf</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/frontier_user_guide.html#tips-and-tricks">Tips and Tricks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#using-reduced-precision-fp16-and-bf16-datatypes">Using reduced precision (FP16 and BF16 datatypes)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#enabling-gpu-page-migration">Enabling GPU Page Migration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#floating-point-fp-atomic-operations-and-coarse-fine-grained-memory-allocations">Floating-Point (FP) Atomic Operations and Coarse/Fine Grained Memory Allocations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#performance-considerations-for-lds-fp-atomicadd">Performance considerations for LDS FP atomicAdd()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#library-considerations-with-atomic-operations">Library considerations with atomic operations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/frontier_user_guide.html#system-updates">System Updates</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#id17">2024-09-03</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#id18">2024-08-20</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#id19">2024-07-16</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#id20">2024-04-17</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#id21">2024-03-19</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#id22">2024-01-23</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#id23">2023-12-05</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#id24">2023-10-03</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#id25">2023-09-19</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#id26">2023-07-18</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/frontier_user_guide.html#id27">2023-05-09</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/frontier_user_guide.html#known-issues">Known Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../systems/summit_user_guide.html">Summit User Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/summit_user_guide.html#summit-documentation-resources">Summit Documentation Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/summit_user_guide.html#system-overview">System Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#summit-nodes">Summit Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#node-types">Node Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#system-interconnect">System Interconnect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#file-systems">File Systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#operating-system">Operating System</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#hardware-threads">Hardware Threads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#gpus">GPUs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/summit_user_guide.html#connecting">Connecting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/summit_user_guide.html#data-and-storage">Data and Storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/summit_user_guide.html#software">Software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/summit_user_guide.html#shell-programming-environments">Shell &amp; Programming Environments</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#default-shell">Default Shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#environment-management-with-lmod">Environment Management with Lmod</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/summit_user_guide.html#compiling">Compiling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#compilers">Compilers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#linking-in-libraries">Linking in Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/summit_user_guide.html#running-jobs">Running Jobs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#login-launch-and-compute-nodes">Login, Launch, and Compute Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#batch-scripts">Batch Scripts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#interactive-jobs">Interactive Jobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#common-bsub-options">Common bsub Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#batch-environment-variables">Batch Environment Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#job-states">Job States</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#scheduling-policy">Scheduling Policy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#job-dependencies">Job Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#job-launcher-jsrun">Job Launcher (jsrun)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#launching-a-job-with-jsrun">Launching a Job with jsrun</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#jsrun-examples">Jsrun Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#using-multithreading-in-a-job">Using Multithreading in a Job</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#launching-multiple-jsruns">Launching Multiple Jsruns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#cuda-aware-mpi">CUDA-Aware MPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#monitoring-jobs">Monitoring Jobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#interacting-with-jobs">Interacting With Jobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#other-lsf-commands">Other LSF Commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#pbs-torque-moab-to-lsf-translation">PBS/Torque/MOAB-to-LSF Translation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#easy-mode-vs-expert-mode">Easy Mode vs. Expert Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#system-service-core-isolation">System Service Core Isolation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#job-accounting-on-summit">Job Accounting on Summit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#other-notes">Other Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/summit_user_guide.html#debugging">Debugging</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#linaro-ddt">Linaro DDT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#gdb">GDB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#valgrind">Valgrind</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/summit_user_guide.html#optimizing-and-profiling">Optimizing and Profiling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#profiling-gpu-code-with-nvidia-developer-tools">Profiling GPU Code with NVIDIA Developer Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#score-p">Score-P</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#vampir">Vampir</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#hpctoolkit">HPCToolkit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/summit_user_guide.html#nvidia-tesla-v100">NVIDIA V100 GPUs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#nvidia-v100-sm">NVIDIA V100 SM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#hbm2">HBM2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#nvidia-nvlink">NVIDIA NVLink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#volta-multi-process-service">Volta Multi-Process Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#unified-memory">Unified Memory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#independent-thread-scheduling">Independent Thread Scheduling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#tensor-cores">Tensor Cores</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#tesla-v100-specifications">Tesla V100 Specifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#further-reading">Further Reading</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/summit_user_guide.html#burst-buffer">Burst Buffer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#nvme-xfs">NVMe (XFS)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#current-nvme-usage">Current NVMe Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#interactive-jobs-using-the-nvme">Interactive Jobs Using the NVMe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#nvme-usage-example">NVMe Usage Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#spectral-library">Spectral Library</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/summit_user_guide.html#known-issues">Known Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#open-issues">Open Issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#resolved-issues">Resolved Issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#cuda-10-1-known-issues">CUDA 10.1 Known Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/summit_user_guide.html#scalable-protected-infrastructure-spi">Scalable Protected Infrastructure (SPI)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/summit_user_guide.html#training-system-ascent">Training System (Ascent)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#id27">File Systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#obtaining-access-to-ascent">Obtaining Access to Ascent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#logging-in-to-ascent">Logging In to Ascent</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/summit_user_guide.html#preparing-for-frontier">Preparing For Frontier</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#hip">HIP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#using-hip-on-summit">Using HIP on Summit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#learning-to-program-with-hip">Learning to Program with HIP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/summit_user_guide.html#previous-frontier-training-events">Previous Frontier Training Events</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../systems/citadel_user_guide.html">Citadel User Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/citadel_user_guide.html#what-is-citadel">What is Citadel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/citadel_user_guide.html#citadel-spi-documentation">Citadel (SPI) Documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../systems/andes_user_guide.html">Andes User Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/andes_user_guide.html#system-overview">System Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#compute-nodes">Compute nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#login-nodes">Login nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#file-systems">File systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#lfs-setstripe-wrapper">LFS setstripe wrapper</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/andes_user_guide.html#shell-and-programming-environments">Shell and programming environments</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#default-shell">Default shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#environment-management-with-lmod">Environment management with lmod</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#installed-software">Installed Software</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/andes_user_guide.html#compiling">Compiling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#available-compilers">Available compilers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#changing-compilers">Changing compilers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#compiler-wrappers">Compiler wrappers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#compiling-threaded-codes">Compiling threaded codes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/andes_user_guide.html#running-jobs">Running Jobs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#login-vs-compute-nodes-on-commodity-clusters">Login vs Compute Nodes on Commodity Clusters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#slurm">Slurm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#interactive-batch-jobs-on-commodity-clusters">Interactive Batch Jobs on Commodity Clusters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#common-batch-options-to-slurm">Common Batch Options to Slurm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#batch-environment-variables">Batch Environment Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#modifying-batch-jobs">Modifying Batch Jobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#monitoring-batch-jobs">Monitoring Batch Jobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#job-execution">Job Execution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#batch-queues-on-andes">Batch Queues on Andes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#job-accounting-on-andes">Job Accounting on Andes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/andes_user_guide.html#andes-debugging">Debugging</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#linaro-ddt">Linaro DDT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#gdb">GDB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#valgrind">Valgrind</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/andes_user_guide.html#visualization-tools">Visualization tools</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#paraview">ParaView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#visit">VisIt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#remote-visualization-using-vnc-non-gpu">Remote Visualization using VNC (non-GPU)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#remote-visualization-using-vnc-gpu-nodes">Remote Visualization using VNC (GPU nodes)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/andes_user_guide.html#remote-visualization-using-nice-dcv-gpu-nodes-only">Remote Visualization using Nice DCV (GPU nodes only)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../systems/home_user_guide.html">Home</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/home_user_guide.html#system-overview">System Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/home_user_guide.html#access-connecting">Access &amp; Connecting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/home_user_guide.html#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/home_user_guide.html#acceptable-tasks">Acceptable Tasks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/home_user_guide.html#unacceptable-tasks">Unacceptable Tasks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../systems/dtn_user_guide.html">Data Transfer Nodes (DTNs)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/dtn_user_guide.html#system-overview">System Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/dtn_user_guide.html#interactive-access">Interactive Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/dtn_user_guide.html#access-from-globus-online">Access From Globus Online</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/dtn_user_guide.html#batch-queue-slurm">Batch Queue (Slurm)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/dtn_user_guide.html#queue-policy">Queue Policy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/dtn_user_guide.html#submitting-jobs-to-frontier">Submitting jobs to Frontier</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../systems/hpss_user_guide.html">High Performance Storage System</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/hpss_user_guide.html#system-overview">System Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../systems/odo_user_guide.html">Odo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/odo_user_guide.html#system-overview">System Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/odo_user_guide.html#file-systems">File Systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/odo_user_guide.html#obtaining-access-to-odo">Obtaining Access to Odo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/odo_user_guide.html#logging-in-to-odo">Logging In to Odo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../systems/ascent_user_guide.html">Ascent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/ascent_user_guide.html#system-overview">System Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../systems/spock_quick_start_guide.html">Spock Quick-Start Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#system-overview">System Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#spock-compute-nodes">Spock Compute Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#system-interconnect">System Interconnect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#file-systems">File Systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#gpus">GPUs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#connecting">Connecting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#data-and-storage">Data and Storage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#nfs">NFS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#gpfs">GPFS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#programming-environment">Programming Environment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#environment-modules-lmod">Environment Modules (Lmod)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#compilers">Compilers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#mpi">MPI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#compiling">Compiling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#id3">MPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#openmp">OpenMP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#openmp-gpu-offload">OpenMP GPU Offload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#hip">HIP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#running-jobs">Running Jobs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#slurm-workload-manager">Slurm Workload Manager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#slurm-compute-node-partitions">Slurm Compute Node Partitions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#process-and-thread-mapping">Process and Thread Mapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#nvme-usage">NVMe Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/spock_quick_start_guide.html#getting-help">Getting Help</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html">Crusher Quick-Start Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#system-overview">System Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#crusher-compute-nodes">Crusher Compute Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#system-interconnect">System Interconnect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#file-systems">File Systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#gpus">GPUs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#connecting">Connecting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#data-and-storage">Data and Storage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#nfs-filesystem">NFS Filesystem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#lustre-filesystem">Lustre Filesystem</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#programming-environment">Programming Environment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#environment-modules-lmod">Environment Modules (Lmod)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#compilers">Compilers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#mpi">MPI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#compiling">Compiling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#id3">MPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#openmp">OpenMP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#openmp-gpu-offload">OpenMP GPU Offload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#hip">HIP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#hip-openmp-cpu-threading">HIP + OpenMP CPU Threading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#sycl">SYCL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#running-jobs">Running Jobs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#slurm-workload-manager">Slurm Workload Manager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#slurm-compute-node-partitions">Slurm Compute Node Partitions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#process-and-thread-mapping">Process and Thread Mapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#nvme-usage">NVMe Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#tips-for-launching-at-scale">Tips for Launching at Scale</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#profiling-applications">Profiling Applications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#getting-started-with-the-hpe-performance-analysis-tools-pat">Getting Started with the HPE Performance Analysis Tools (PAT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#getting-started-with-hpctoolkit">Getting Started with HPCToolkit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#getting-started-with-the-rocm-profiler">Getting Started with the ROCm Profiler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#roofline-profiling-with-the-rocm-profiler">Roofline Profiling with the ROCm Profiler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#omnitrace">Omnitrace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#omniperf">Omniperf</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#notable-differences-between-summit-and-crusher">Notable Differences between Summit and Crusher</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#using-reduced-precision-fp16-and-bf16-datatypes">Using reduced precision (FP16 and BF16 datatypes)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#enabling-gpu-page-migration">Enabling GPU Page Migration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#floating-point-fp-atomic-operations-and-coarse-fine-grained-memory-allocations">Floating-Point (FP) Atomic Operations and Coarse/Fine Grained Memory Allocations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#performance-considerations-for-lds-fp-atomicadd">Performance considerations for LDS FP atomicAdd()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#system-updates">System Updates</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#id6">2024-03-19</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#id7">2024-01-23</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#id8">2023-12-05</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#id9">2023-10-03</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#id10">2023-09-19</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#id11">2023-07-18</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#id12">2023-04-05</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#id13">2022-12-29</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/crusher_quick_start_guide.html#getting-help">Getting Help</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Services and Applications</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Slate</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="overview.html">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="overview.html#what-is-slate">What is Slate?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="overview.html#what-is-kubernetes">What is Kubernetes?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="overview.html#what-is-openshift">What is OpenShift?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting_started.html#requesting-a-slate-project-allocation">Requesting A Slate Project Allocation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started.html#logging-in">Logging in</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started.html#slate-namespaces">Slate Namespaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started.html#install-the-oc-tool">Install the OC tool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started.html#test-login-with-oc-tool">Test login with OC Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="guided_tutorial.html">Guided Tutorial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guided_tutorial.html#creating-your-project">Creating your project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guided_tutorial.html#guided-web-gui-tutorial">Guided Web GUI Tutorial</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Guided Tutorial: CLI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-a-pod-to-your-project">Adding a Pod to your Project</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="image_building.html">Image Building</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="image_building.html#build-types">Build Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="image_building.html#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="image_building.html#logging-into-the-registry-externally">Logging into the registry externally</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="workloads/index.html">Workloads</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="workloads/pod.html">Pods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workloads/deployment.html">Deployments</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="networking/index.html">Networking</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="networking/services.html">Services</a></li>
+<li class="toctree-l4"><a class="reference internal" href="networking/nodeport.html">NodePorts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="networking/route.html">Routes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="networking/networkpolicy.html">Network Policies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="networking/port_forwarding.html">Quick Access from Outside Slate</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="storage.html">Persistent Storage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="storage.html#creating-a-persistent-volume-claim">Creating A Persistent Volume Claim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="storage.html#adding-pvc-to-pod">Adding PVC To Pod</a></li>
+<li class="toctree-l4"><a class="reference internal" href="storage.html#backups">Backups</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="workflows/index.html">Workflows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="workflows/overview.html">Workflows Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows/openshift_gitops.html">OpenShift GitOps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="workflows/openshift_pipelines.html">OpenShift Pipelines</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="use_cases/index.html">Application Deployment Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="use_cases/simple_website.html">Build and Deploy Simple Website</a></li>
+<li class="toctree-l4"><a class="reference internal" href="use_cases/mongodb_service.html">Deploy MongoDB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="use_cases/nginx_hello_world.html">Deploy NGINX with Hello World</a></li>
+<li class="toctree-l4"><a class="reference internal" href="use_cases/gitlab_runner.html">GitLab Runners</a></li>
+<li class="toctree-l4"><a class="reference internal" href="use_cases/helm_example.html">Deploy Packages with Helm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="use_cases/helm_prerequisite.html">Helm Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="use_cases/minio.html">MinIO Object Store (On an NCCS Filesystem)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="access_olcf_resources/index.html">Access OLCF Resources From Containers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="access_olcf_resources/job_submit.html">Batch Job Submission</a></li>
+<li class="toctree-l4"><a class="reference internal" href="access_olcf_resources/mount_fs.html">Mount OLCF Filesystems</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="other_resources.html">Schedule Other Slate Resources</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="other_resources.html#gpus">GPUs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="olcf_provided_applications/index.html">OLCF-Provided Applications on Slate</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting/index.html">Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="troubleshooting/fix-writable-directories.html">Fix Container Image Permissions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="troubleshooting/debugging.html">Debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html">YAML Object Quick Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples.html#cronjobs">CronJobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.html#deployments-and-stateful-sets">Deployments and Stateful Sets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.html#pods">Pods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.html#roles-and-rolebindings">Roles and Rolebindings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.html#routes-services-and-nodeports">Routes, Services and Nodeports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.html#persistent-volume-claims">Persistent Volume Claims</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../myolcf/index.html">myOLCF</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../myolcf/overview.html">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../myolcf/overview.html#what-is-myolcf">What is myOLCF?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../myolcf/overview.html#what-can-it-do">What can it do?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../myolcf/overview.html#can-i-suggest-a-feature">Can I suggest a feature?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../myolcf/authenticating.html">Authenticating</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../myolcf/authenticating.html#olcf-moderate-accounts">OLCF Moderate Accounts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../myolcf/authenticating.html#olcf-open-accounts">OLCF Open Accounts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../myolcf/project_pages/project_pages.html">Project Pages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../myolcf/project_pages/project_pages.html#project-context">Project Context</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../myolcf/project_pages/project_pages.html#switching-project-contexts">Switching Project Contexts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../myolcf/project_pages/project_pages.html#available-pages">Available Pages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../myolcf/account_pages/account_pages.html">Account Pages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../myolcf/account_pages/account_pages.html#account-context">Account Context</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../myolcf/account_pages/account_pages.html#available-pages">Available Pages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../myolcf/account_pages/processing_membership_requests.html">Processing Project Membership Requests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../jupyter/index.html">Jupyter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../jupyter/overview.html">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../jupyter/overview.html#jupyter-at-olcf">Jupyter at OLCF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../jupyter/overview.html#access">Access</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../jupyter/overview.html#cpu-vs-gpu-jupyterlab-available-resources">CPU vs. GPU JupyterLab (Available Resources)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../jupyter/overview.html#working-within-lustre-and-nfs-launching-a-notebook">Working within Lustre and NFS (Launching a notebook)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../jupyter/overview.html#conda-environments-and-custom-notebooks">Conda environments and custom notebooks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../jupyter/overview.html#manually-stopping-your-jupyterlab-session">Manually stopping your JupyterLab session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../jupyter/overview.html#things-to-be-aware-of">Things to be aware of</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../jupyter/overview.html#example-jupyter-notebooks">Example Jupyter Notebooks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data/index.html">Data Storage and Transfers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../data/index.html#summary-of-storage-areas">Summary of Storage Areas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#notes-on-user-centric-data-storage">Notes on User-Centric Data Storage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../data/index.html#user-home-directories-nfs">User Home Directories (NFS)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#notes-on-project-centric-data-storage">Notes on Project-Centric Data Storage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../data/index.html#project-home-directories-nfs">Project Home Directories (NFS)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/index.html#project-work-areas">Project Work Areas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/index.html#project-archive-directories">Project Archive Directories</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../data/index.html#data-policies">Data Policies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#information">Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#special-requests">Special Requests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#data-retention">Data Retention</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../data/index.html#orion-lustre-hpe-clusterstor-filesystem">Orion Lustre HPE ClusterStor Filesystem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#orion-performance-tiers-and-file-striping-policy">Orion Performance Tiers and File Striping Policy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#i-o-patterns-that-benefit-from-file-striping">I/O Patterns that Benefit from File Striping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#lfs-setstripe-wrapper">LFS setstripe wrapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#lustre-file-locking-tips">Lustre File Locking Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#darshan-runtime-and-i-o-profiling">Darshan-runtime and I/O Profiling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#purge">Purge</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../data/index.html#alpine2-ibm-spectrum-scale-filesystem">Alpine2 IBM Spectrum Scale Filesystem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#alpine2-performance-under-non-ideal-workloads">Alpine2 Performance under non-ideal workloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#tips">Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#major-difference-between-lustre-hpe-clusterstor-and-ibm-spectrum-scale">Major difference between Lustre HPE ClusterStor and IBM Spectrum Scale</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../data/index.html#hpss-data-archival-system">HPSS Data Archival System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data/index.html#kronos-nearline-archival-storage-system">Kronos Nearline Archival Storage System</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#access-data-transfer">Access / Data Transfer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#directory-structure">Directory Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#project-quotas">Project Quotas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#kronos-and-hpss-comparison">Kronos and HPSS Comparison</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../data/index.html#transferring-data">Transferring Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#data-transferring-data-globus">Globus</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../data/index.html#using-globus-to-move-data-between-collections">Using Globus to Move Data Between Collections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/index.html#using-globus-from-your-local-workstation">Using Globus From Your Local Workstation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#hsi">HSI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../data/index.html#additional-hsi-documentation">Additional HSI Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#htar">HTAR</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../data/index.html#htar-limitations">HTAR Limitations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/index.html#additional-htar-documentation">Additional HTAR Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html#command-line-terminal-tools">Command-Line/Terminal Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../data/index.html#burst-buffer-and-spectral-library">Burst Buffer and Spectral Library</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../software/index.html">Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../software/SWList.html">SWList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../software/SWList_flat_table.html">SWList_Flat_Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../software/SWList_less_wide.html">SWList_Less_Wide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../software/SWList_condensed.html">SWList_condensed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../software/SWList_expanding.html">SWList_expanding_copy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../software/software-news.html">Software News</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../software/software-news.html#frontier-updated-modules-for-cpe-23-12-october-16-2024">Frontier: Updated modules for cpe/23.12 (October 16 2024)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/software-news.html#frontier-core-module-october-15-2024">Frontier: Core module (October 15, 2024)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/software-news.html#frontier-system-software-update-july-16-2024">Frontier: System Software Update (July 16, 2024)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/software-news.html#frontier-user-environment-changes-july-9-2024">Frontier: User Environment Changes (July 9, 2024)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../software/analytics/index.html">ML/DL &amp; Data Analytics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../software/analytics/ibm-wml-ce.html">IBM Watson Machine Learning CE -&gt; Open CE</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../software/analytics/ibm-wml-ce.html#getting-started">Getting Started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/analytics/ibm-wml-ce.html#running-distributed-deep-learning-jobs">Running Distributed Deep Learning Jobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/analytics/ibm-wml-ce.html#setting-up-custom-environments">Setting up Custom Environments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/analytics/ibm-wml-ce.html#best-distributed-deep-learning-performance">Best Distributed Deep Learning Performance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/analytics/ibm-wml-ce.html#troubleshooting-tips">Troubleshooting Tips</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/analytics/pbdR.html">R and pbdR on Summit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../software/analytics/pbdR.html#loading-r">Loading R</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/analytics/pbdR.html#how-to-run-an-r-script">How to Run an R Script</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/analytics/pbdR.html#r-hello-world-example">R Hello World Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/analytics/pbdR.html#pbdr-hello-world-example">pbdR Hello World Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/analytics/pbdR.html#common-r-packages-for-parallelism">Common R Packages for Parallelism</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/analytics/pbdR.html#gpu-computing-with-r">GPU Computing with R</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/analytics/pbdR.html#more-information">More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/analytics/nvidia-rapids.html">NVIDIA RAPIDS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../software/analytics/nvidia-rapids.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/analytics/nvidia-rapids.html#getting-started">Getting Started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/analytics/nvidia-rapids.html#rapids-on-jupyter">RAPIDS on Jupyter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/analytics/nvidia-rapids.html#rapids-on-summit">RAPIDS on Summit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/analytics/nvidia-rapids.html#setting-up-custom-environments">Setting up Custom Environments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/analytics/nvidia-rapids.html#blazingsql-distributed-execution">BlazingSQL Distributed Execution</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/analytics/apache-spark.html">Apache Spark</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../software/analytics/apache-spark.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/analytics/apache-spark.html#getting-started">Getting Started</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../software/python/index.html">Python on OLCF Systems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../software/python/index.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/python/index.html#olcf-python-guides">OLCF Python Guides</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../software/python/conda_basics.html">Conda Basics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/python/parallel_h5py.html">Installing mpi4py and h5py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/python/cupy.html">Installing CuPy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/python/sbcast_conda.html">Sbcast Conda Environments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/python/jupyter_envs.html">Jupyter Visibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/python/pytorch_summit.html">PyTorch on Summit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/python/pytorch_frontier.html">PyTorch on Frontier</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/python/index.html#module-usage">Module Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../software/python/index.html#base-environment">Base Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/python/index.html#custom-environments">Custom Environments</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/python/index.html#how-to-run">How to Run</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../software/python/index.html#summit">Summit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/python/index.html#frontier-andes">Frontier / Andes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/python/index.html#best-practices">Best Practices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/python/index.html#additional-resources">Additional Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../software/profiling/index.html">Profiling Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../software/profiling/Scorep.html">Score-P</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/Scorep.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/Scorep.html#usage">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/Scorep.html#instrumentation">Instrumentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/Scorep.html#measurement">Measurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/Scorep.html#profiling">Profiling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/Scorep.html#tracing">Tracing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/Scorep.html#manual-instrumentation">Manual Instrumentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/Scorep.html#score-p-demo-video">Score-P Demo Video</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/profiling/TAU.html">Tuning and Analysis Utilities (TAU)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/TAU.html#run-time-environment-variables">Run-Time Environment Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/TAU.html#compile-time-environment-variables">Compile-Time Environment Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/TAU.html#miniweather-example-application">MiniWeather Example Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/TAU.html#cuda-profiling-tools-interface">CUDA Profiling Tools Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/TAU.html#tracing">Tracing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/TAU.html#selective-instrumentation">Selective Instrumentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/TAU.html#dynamic-phase">Dynamic Phase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/TAU.html#static-phase">Static Phase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/TAU.html#openmp-offload">OpenMP Offload</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/profiling/Vampir.html">Vampir</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/Vampir.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/Vampir.html#usage">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/Vampir.html#vampir-on-a-login-node">Vampir on a Login Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/Vampir.html#vampir-using-vampirserver">Vampir Using VampirServer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/Vampir.html#vampir-tunneling-to-vampirserver">Vampir Tunneling to VampirServer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/profiling/Vampir.html#vampir-gui-demo">Vampir GUI Demo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../software/UMS/index.html">User-Managed Software</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../software/UMS/index.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/UMS/index.html#currently-available-user-managed-software">Currently Available User-Managed Software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/UMS/index.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/UMS/index.html#policies">Policies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/UMS/index.html#writing-ums-modulefiles">Writing UMS Modulefiles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../software/workflows/index.html">Workflows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../software/workflows/index.html#running-workflows-on-olcf-resources">Running Workflows on OLCF Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/workflows/index.html#workflow-systems">Workflow Systems</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../software/workflows/entk.html">Ensemble Toolkit (EnTK)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/workflows/fireworks.html">FireWorks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/workflows/mlflow.html">MLflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/workflows/parsl.html">Parsl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/workflows/pmake.html">pmake</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/workflows/swift_t.html">Swift/T</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/workflows/libensemble.html">libEnsemble</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../software/e4s.html">E4S Software Stack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../software/e4s.html#summit">Summit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../software/e4s.html#access-via-modulefiles">Access via modulefiles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/e4s.html#e4s-21-08-packages">E4S 21.08 Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/e4s.html#e4s-21-05-packages">E4S 21.05 Packages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/e4s.html#spock">Spock</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../software/e4s.html#id1">Access via modulefiles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/e4s.html#id2">E4S 21.08 Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/e4s.html#id3">E4S 21.05 Packages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../software/spack_environments.html">Spack Environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../software/spack_environments.html#purpose">Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/spack_environments.html#getting-started">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/spack_environments.html#add-dependencies-to-the-environment">Add Dependencies to the environment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../software/spack_environments.html#adding-olcf-modulefiles-as-external-packages">Adding OLCF Modulefiles as External Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/spack_environments.html#adding-user-defined-dependencies-to-the-environment">Adding User-Defined Dependencies to the environment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/spack_environments.html#installing-the-environment">Installing the Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/spack_environments.html#more-details">More Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/spack_environments.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../software/viz_tools/index.html">Visualization Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../software/viz_tools/visit.html">VisIt</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../software/viz_tools/visit.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/viz_tools/visit.html#installing-and-setting-up-visit">Installing and Setting Up Visit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/viz_tools/visit.html#remote-gui-usage">Remote GUI Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/viz_tools/visit.html#command-line-example">Command Line Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/viz_tools/visit.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/viz_tools/visit.html#additional-resources">Additional Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/viz_tools/paraview.html">ParaView</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../software/viz_tools/paraview.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/viz_tools/paraview.html#installing-and-setting-up-paraview">Installing and Setting Up ParaView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/viz_tools/paraview.html#remote-gui-usage">Remote GUI Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/viz_tools/paraview.html#command-line-example">Command Line Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/viz_tools/paraview.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/viz_tools/paraview.html#additional-resources">Additional Resources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../software/containers_on_summit.html">Containers on Summit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../software/containers_on_summit.html#basic-information">Basic Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/containers_on_summit.html#setup-before-building">Setup before Building</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/containers_on_summit.html#build-and-run-workflow">Build and Run Workflow</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../software/containers_on_summit.html#building-a-simple-image">Building a Simple Image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/containers_on_summit.html#using-a-container-registry-to-build-and-save-your-images">Using a Container Registry to Build and Save your Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/containers_on_summit.html#running-a-simple-container-in-a-batch-job">Running a Simple Container in a Batch Job</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/containers_on_summit.html#running-an-mpi-program-with-the-olcf-mpi-base-image">Running an MPI program with the OLCF MPI base image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/containers_on_summit.html#running-a-single-node-gpu-program-with-the-olcf-mpi-base-image">Running a single node GPU program with the OLCF MPI base image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/containers_on_summit.html#running-a-cuda-aware-mpi-program-with-the-olcf-mpi-base-image">Running a CUDA-Aware MPI program with the OLCF MPI base image</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/containers_on_summit.html#tips-tricks-and-things-to-watch-out-for">Tips, Tricks, and Things to Watch Out For</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../software/containers_on_frontier.html">Containers on Frontier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../software/containers_on_frontier.html#examples-for-building-and-running-containers">Examples for Building and Running Containers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../software/containers_on_frontier.html#building-and-running-a-container-image-from-a-base-linux-distribution-for-mpi">Building and running a container image from a base Linux distribution for MPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/containers_on_frontier.html#pushing-your-apptainer-image-to-an-oci-registry-supporting-oras-e-g-dockerhub">Pushing your Apptainer image to an OCI Registry supporting ORAS (e.g. DockerHub)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/containers_on_frontier.html#building-an-image-on-top-of-an-existing-image-local-docker-image-oci-artifact">Building an image on top of an existing image (local, docker image, OCI artifact)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/containers_on_frontier.html#olcf-base-images-apptainer-modules">OLCF Base Images &amp; Apptainer Modules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../software/containers_on_frontier.html#base-images">Base Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/containers_on_frontier.html#apptainer-modules">Apptainer Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/containers_on_frontier.html#example-workflow">Example Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/containers_on_frontier.html#some-restrictions-and-tips">Some Restrictions and Tips</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../software/debugging/index.html">Debugging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../software/debugging/index.html#linaro-forge-ddt">Linaro Forge DDT</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../software/debugging/index.html#client-setup-and-usage">Client Setup and Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/debugging/index.html#download">Download</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/debugging/index.html#installation">Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../software/debugging/index.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/debugging/index.html#gnu-gdb">GNU GDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/debugging/index.html#valgrind">Valgrind</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../training/index.html">Training</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://www.olcf.ornl.gov/for-users/training/training-calendar" target="_blank">OLCF Training Calendar</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/olcf-tutorials" target="_blank">OLCF Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../training/training_archive.html">OLCF Training Archive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../training/olcf_gpu_hackathons.html">OLCF GPU Hackathons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../training/olcf_gpu_hackathons.html#facultyhack">FacultyHack</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://vimeo.com/channels/olcftraining" target="_blank">OLCF Vimeo Channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../training/index.html#new-user-quick-start">New User Quick Start</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum/index.html">Quantum</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum/quantum_access.html">Quantum Computing User Program (QCUP) Access</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/quantum_access.html#qcup-priorities">QCUP Priorities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/quantum_access.html#project-allocations">Project Allocations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_access.html#what-happens-after-a-project-request-is-approved">What happens after a project request is approved?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_access.html#project-renewals">Project Renewals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_access.html#closeout-and-quarterly-reports">Closeout and Quarterly Reports</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/quantum_access.html#user-accounts">User Accounts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_access.html#checking-the-status-of-your-application">Checking the status of your application</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/quantum_access.html#accessing-quantum-resources">Accessing Quantum Resources</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_access.html#ibm-quantum-computing">IBM Quantum Computing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_access.html#quantinuum">Quantinuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_access.html#rigetti">Rigetti</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_access.html#ionq">IonQ</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/quantum_access.html#publication-citations">Publication Citations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum/quantum_systems/index.html">Quantum Systems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/quantum_systems/ibm_quantum.html">IBM Quantum</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/ibm_quantum.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/ibm_quantum.html#connecting">Connecting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/ibm_quantum.html#running-jobs-queue-policies">Running Jobs &amp; Queue Policies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/ibm_quantum.html#checking-system-availability-capability">Checking System Availability &amp; Capability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/ibm_quantum.html#software">Software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/ibm_quantum.html#additional-resources">Additional Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/quantum_systems/rigetti.html">Rigetti</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/rigetti.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/rigetti.html#connecting">Connecting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/rigetti.html#running-jobs">Running Jobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/rigetti.html#allocations-credit-usage">Allocations &amp; Credit Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/rigetti.html#data-storage-policies">Data Storage Policies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/rigetti.html#software">Software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/rigetti.html#additional-resources">Additional Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/quantum_systems/quantinuum.html">Quantinuum</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/quantinuum.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/quantinuum.html#connecting">Connecting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/quantinuum.html#running-jobs-queue-policies">Running Jobs &amp; Queue Policies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/quantinuum.html#allocations-credit-usage">Allocations &amp; Credit Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/quantinuum.html#software">Software</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/quantum_systems/ionq.html">IonQ</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/ionq.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/ionq.html#ionq-systems">IonQ systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/ionq.html#connecting">Connecting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/ionq.html#running-jobs-queue-policies">Running Jobs &amp; Queue Policies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/ionq.html#allocations-credit-usage">Allocations &amp; Credit Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/ionq.html#checking-system-availability-capability">Checking System Availability &amp; Capability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_systems/ionq.html#additional-resources">Additional Resources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum/quantum_software/index.html">Quantum Software</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/quantum_software/hybrid_hpc.html">Quantum Software on HPC Systems</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_software/hybrid_hpc.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_software/hybrid_hpc.html#qiskit">Qiskit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_software/hybrid_hpc.html#pyquil-forest-sdk-rigetti">PyQuil/Forest SDK (Rigetti)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_software/hybrid_hpc.html#pennylane">PennyLane</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_software/hybrid_hpc.html#pytket">Pytket</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_software/hybrid_hpc.html#cuda-q">CUDA-Q</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quantum/quantum_software/hybrid_hpc.html#batch-jobs">Batch Jobs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum/hello_qcup.html">Hello QCUP Scripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/hello_qcup.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/hello_qcup.html#ibm-quantum">IBM Quantum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/hello_qcup.html#quantinuum">Quantinuum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/hello_qcup.html#ionq">IonQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/hello_qcup.html#rigetti">Rigetti</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum/quantum_faq.html">Frequently Asked Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/quantum_faq.html#how-do-quantum-computers-differ-from-classical-computers">How do quantum computers differ from classical computers?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/quantum_faq.html#what-is-a-qubit">What is a qubit?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/quantum_faq.html#how-do-i-access-the-olcf-quantum-computing-resources">How do I access the OLCF quantum computing resources?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/quantum_faq.html#what-happens-after-i-apply-for-access-to-qcup">What happens after I apply for access to QCUP?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/quantum_faq.html#i-formerly-had-access-to-quantum-resources-but-my-backends-lattices-etc-have-disappeared-what-do-i-do">I formerly had access to quantum resources, but my backends/lattices/etc. have disappeared, what do I do?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum/quantum_faq.html#i-applied-to-a-quantum-computing-resource-via-the-vendor-website-but-dont-have-access-what-do-i-do">I applied to a quantum computing resource via the vendor website, but don’t have access; what do I do?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../spi/index.html">Scalable Protected Infrastructure (SPI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../spi/index.html#what-is-spi">What is SPI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../spi/index.html#what-is-citadel">What is Citadel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../spi/index.html#new-user-quickstart">New User QuickStart</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../spi/index.html#notable-differences">Notable Differences</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../spi/index.html#allocations-and-user-accounts">Allocations and User Accounts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../spi/index.html#allocations-projects">Allocations (Projects)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../spi/index.html#requesting-a-new-allocation-project">Requesting a New Allocation (Project)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../spi/index.html#user-accounts">User Accounts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../spi/index.html#requesting-a-new-user-account">Requesting a New User Account</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../spi/index.html#available-resources">Available Resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../spi/index.html#compute"><span class="xref std std-ref">Compute</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../spi/index.html#file-systems"><span class="xref std std-ref">File Systems</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../spi/index.html#data-transfer"><span class="xref std std-ref">Data Transfer</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../spi/index.html#ip-whitelisting">IP Whitelisting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../spi/index.html#whitelisting-an-ip-or-range">Whitelisting an IP or range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../spi/index.html#finding-your-ip">Finding your IP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../spi/index.html#citadel">Citadel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../spi/index.html#login-nodes">Login Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../spi/index.html#connecting">Connecting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../spi/index.html#building-software">Building Software</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../spi/index.html#external-repositories">External Repositories</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../spi/index.html#running-batch-jobs">Running Batch Jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../spi/index.html#spi-file-systems">File Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../spi/index.html#spi-data-transfer">Data Transfer</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ace_testbed/index.html">Advanced Computing Ecosystem Testbed (ACE)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html">Defiant Quick-Start Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#system-overview">System Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#defiant-compute-nodes">Defiant Compute Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#system-interconnect">System Interconnect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#file-systems">File Systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#gpus">GPUs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#connecting">Connecting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#data-and-storage">Data and Storage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#nfs-filesystem">NFS Filesystem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#lustre-filesystem-polis">Lustre Filesystem (Polis)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#programming-environment">Programming Environment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#environment-modules-lmod">Environment Modules (Lmod)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#compilers">Compilers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#mpi">MPI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#compiling">Compiling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#id3">MPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#openmp">OpenMP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#openmp-gpu-offload">OpenMP GPU Offload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#hip">HIP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#running-jobs">Running Jobs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#slurm-workload-manager">Slurm Workload Manager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#slurm-compute-node-partitions">Slurm Compute Node Partitions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#process-and-thread-mapping">Process and Thread Mapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#nvme-usage">NVMe Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#container-usage">Container Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#setup-before-building">Setup before Building</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#build-and-run-workflow">Build and Run Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#getting-help">Getting Help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ace_testbed/defiant_quick_start_guide.html#known-issues">Known Issues</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Contributing to these docs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing/index.html#submitting-suggestions">Submitting suggestions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing/index.html#authoring-content">Authoring content</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing/index.html#setup-authoring-environment">Setup authoring environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing/index.html#edit-the-docs">Edit the docs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing/index.html#resources">Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing/index.html#github-guidelines">GitHub Guidelines</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #efefef" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">OLCF User Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Services and Applications</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Slate</a></li>
+      <li class="breadcrumb-item active">Guided Tutorial: CLI</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/olcf/olcf-user-docs/blob/master/services_and_applications/slate/guided_tutorial_cli.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="guided-tutorial-cli">
+<span id="slate-guided-tutorial-cli"></span><h1>Guided Tutorial: CLI<a class="headerlink" href="#guided-tutorial-cli" title="Link to this heading"></a></h1>
+<p>This tutorial is a continuation of the <a class="reference internal" href="guided_tutorial.html#slate-guided-tutorial"><span class="std std-ref">Guided Tutorial</span></a> and you should start there.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>You will be creating a single Pod in this tutorial which is not sufficient for a production service</p>
+</div>
+<section id="adding-a-pod-to-your-project">
+<h2>Adding a Pod to your Project<a class="headerlink" href="#adding-a-pod-to-your-project" title="Link to this heading"></a></h2>
+<p>Before using the CLI it would be wise to read our <a class="reference internal" href="getting_started.html#slate-getting-started-oc"><span class="std std-ref">Getting Started on the CLI</span></a> doc.</p>
+<p>Once the <strong>oc</strong> client has been installed and is logged into the cluster you need to switch to your <a class="reference internal" href="glossary.html#term-Project"><span class="xref std std-term">Project</span></a>. Switching to a <a class="reference internal" href="glossary.html#term-Project"><span class="xref std std-term">Project</span></a> allows the <strong>oc</strong> client to assume that the commands it is running should be executed inside of the  <a class="reference internal" href="glossary.html#term-Project"><span class="xref std std-term">Project</span></a> that you switch to. You could alternatively not switch to a project and append the <code class="docutils literal notranslate"><span class="pre">-n</span></code> flag to each command you run followed by the name of the project you wish to run your command in. That being said, switch to your project:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc<span class="w"> </span>project<span class="w"> </span>&lt;PROJECT_NAME&gt;
+</pre></div>
+</div>
+<p>Where <cite>&lt;PROJECT_NAME&gt;</cite> above is the name of your <a class="reference internal" href="glossary.html#term-Project"><span class="xref std std-term">Project</span></a> which will be the name of your RATS allocation. If you need to double check your <a class="reference internal" href="glossary.html#term-Project"><span class="xref std std-term">Project</span></a> name you can run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc<span class="w"> </span>get<span class="w"> </span>projects
+</pre></div>
+</div>
+<p>to get a list of projects that you have access to.</p>
+<p>Now, to get a list of pods that exist in the project run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc<span class="w"> </span>get<span class="w"> </span>pods
+</pre></div>
+</div>
+<p>This should not return any <a class="reference internal" href="glossary.html#term-Pods"><span class="xref std std-term">Pods</span></a> because there will not be any pods in the project yet.</p>
+<p>To remedy this problem we will create a pod. Below is a basic definition of a pod in YAML. Copy this and save it to a file named pod.yaml.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pod</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># Pod name</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test-pod</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># Container name</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test-container</span>
+<span class="w">      </span><span class="c1"># Using the base image</span>
+<span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;image-registry.openshift-image-registry.svc:5000/openshift/ccs-rhel7-base-amd64&quot;</span>
+<span class="w">      </span><span class="c1"># Starting a shell</span>
+<span class="w">      </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;/bin/sh&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;-c&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="c1"># Echoing a Hello World followed by an infinitely waiting cat</span>
+<span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;echo</span><span class="nv"> </span><span class="s">&#39;Hello</span><span class="nv"> </span><span class="s">World!&#39;;</span><span class="nv"> </span><span class="s">cat&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="c1"># Need a tty if we are to SSH. Need stdin for tty</span>
+<span class="w">      </span><span class="nt">tty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">stdin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+<p>With the above YAML saved in a pod.yaml file we can now create the pod with the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>pod.yaml
+</pre></div>
+</div>
+<p>Now if we run the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc<span class="w"> </span>get<span class="w"> </span>pods
+</pre></div>
+</div>
+<p>We should see our pod along with some status information about the pod.</p>
+<p>To get useful metrics about the pod we can run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc<span class="w"> </span>describe<span class="w"> </span>pod<span class="w"> </span>&lt;POD_NAME&gt;
+</pre></div>
+</div>
+<p>where <cite>&lt;POD_NAME&gt;</cite> will be the name of the pod. In our case test-pod.</p>
+<p>To get logs from the pod we can run the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>&lt;POD_NAME&gt;
+</pre></div>
+</div>
+<p><em>NOTE</em> the <code class="docutils literal notranslate"><span class="pre">-f</span></code> flag will follow the logs. You can run the logs command without the <code class="docutils literal notranslate"><span class="pre">-f</span></code> flag to get a snapshot of the logs.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>&lt;POD_NAME&gt;<span class="w"> </span>-o<span class="w"> </span>yaml
+</pre></div>
+</div>
+<p>Will allow you to view the YAML representation that exists in Openshift that defines your pod. You may notice that the YAML contains many more key/value pairs than the YAML that we have in our pod.yaml file. This is correct and is because extra YAML is added during the pod creation process.</p>
+<p>Finally, to get a remote shell in the pod we run the <code class="docutils literal notranslate"><span class="pre">oc</span> <span class="pre">rsh</span> <span class="pre">&lt;POD_NAME&gt;</span></code> command. This will default to using <code class="docutils literal notranslate"><span class="pre">/bin/sh</span></code> in the pod. If a different shell is required, we can provide the optional <code class="docutils literal notranslate"><span class="pre">--shell=/path/to/shell</span></code> flag. For example, if we wanted to open a bash shell in the pod we would run the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc<span class="w"> </span>rsh<span class="w"> </span>--shell<span class="o">=</span><span class="s1">&#39;/bin/bash&#39;</span><span class="w"> </span>&lt;POD_NAME&gt;
+</pre></div>
+</div>
+<p>If you have multiple containers in your pod, the <code class="docutils literal notranslate"><span class="pre">oc</span> <span class="pre">rsh</span> <span class="pre">&lt;POD_NAME&gt;</span></code> command will default to the first container. If you would like to start a remote shell in one of the other containers, you can use the optional <code class="docutils literal notranslate"><span class="pre">-c</span> <span class="pre">&lt;CONTAINER_NAME&gt;</span></code> flag.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="guided_tutorial.html" class="btn btn-neutral float-left" title="Guided Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="image_building.html" class="btn btn-neutral float-right" title="Image Building" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, OLCF.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+
+
+</body>
+</html>
