@@ -41,15 +41,28 @@ author = 'OLCF'
 extensions = [
     'sphinx_design',
     "sphinxcontrib.jquery",
-    "sphinx_datatables",
+    'sphinx_datatables',
+    "sphinx_needs",
 ]
 
 # Data table settings
+# set the version to use for DataTables plugin
+datatables_version = "1.13.4"
 # name of the class to use for tables to enable DataTables
-datatables_class = "sphinx-datatable"
-datatables_options = {
-    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],  # Allow choosing number of rows per page 
-}
+# datatables_class = "sphinx-datatable"
+#datatables_options = {
+#    "searching": True,
+#}
+
+html_static_path = ['_static']
+html_css_files = [
+    'https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css',
+]
+html_js_files = [
+    'https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js',
+    'main.js',
+]
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
