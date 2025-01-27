@@ -10,6 +10,8 @@ Software
    :maxdepth: 2
 
    SWList
+   SWList_per_version
+   SWList_name_version
    SWList_borg
    SWList_flat_table
    SWList_less_wide

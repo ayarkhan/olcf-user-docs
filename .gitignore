@@ -7,3 +7,5 @@ _build
 *.swo
 [#]*[#]
 
+software/software_list/moduleinfo/*
+software/afar_14.0.0_4.5.0
