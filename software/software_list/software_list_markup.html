@@ -1,0 +1,98 @@
+<div style="overflow-x:auto;">
+   <table id="example" class="display nowrap" style="width:100%">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>System</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>System</th>
+                <th>Description</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<style>
+    /* Apply table layout fixed to ensure cell height is respected */
+    #filterable_table {
+        table-layout: fixed; /* Make the table cells respect the height setting */
+        width: 100%; /* Ensures the table takes the full width */
+    }
+
+    td {
+        vertical-align: middle; /* Align content vertically in the middle */
+    }
+
+    td.hidden-text {
+    text-indent: -9999px;  /* Pushes the text off-screen */
+    }
+
+    .dataTables_filter {
+        float: left !important;
+    }
+</style>
+
+<script type="text/javascript">
+    // Formatting function for row details - modify as you need
+function format(d) {
+    // `d` is the original data object for the row
+    return (
+        '<dl>' +
+        '<dt>Name:</dt>' +
+        '<dd>' +
+            d.name + '<br />' +
+            d.system + '<br />' +
+        '</dd>' +
+        '<dt>Description:</dt>' +
+        '<dd>' +
+            d.description + '<br />' +
+            d.homepage + '<br />' +
+        '</dd>' +
+        '<dt>Available version</dt>' +
+             d.version + '<br />' +
+        '</dl>'
+    );
+}
+
+let table = new DataTable('#example', {
+    ajax: 'software_list_data.json',
+    columns: [
+        {
+            className: 'dt-control',
+            orderable: false,
+            data: null,
+            defaultContent: ''
+        },
+        { data: 'name' },
+        { data: 'system' },
+        { data: 'description' }
+    ],
+    order: [[1, 'asc']],
+    layout: {
+        top2Start: 'search',
+        topEnd: ''
+    }
+});
+
+// Add event listener for opening and closing details
+table.on('click', 'td.dt-control', function (e) {
+    let tr = e.target.closest('tr');
+    let row = table.row(tr);
+
+    if (row.child.isShown()) {
+        // This row is already open - close it
+        row.child.hide();
+    }
+    else {
+        // Open this row
+        row.child(format(row.data())).show();
+    }
+});
+</script>
